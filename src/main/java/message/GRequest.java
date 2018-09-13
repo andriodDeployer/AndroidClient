@@ -1,0 +1,58 @@
+package message;/**
+ * Created by DELL on 2018/8/30.
+ */
+
+
+import group.im1.message.Message;
+import payload.GRequestPayload;
+
+/**
+ * user is lwb
+ **/
+
+
+public class GRequest {
+
+    private final GRequestPayload payload;
+    private Message message;
+
+    public GRequest(){
+        this(new GRequestPayload());
+    }
+
+
+    public GRequest(GRequestPayload payload){
+        this.payload = payload;
+       // this.messageType = messageType;
+    }
+
+
+    public long requestId(){
+        return payload.requestId();
+    }
+
+    public long timestemp(){
+        return payload.timestemp();
+    }
+
+    public GRequestPayload payload(){
+        return payload;
+    }
+
+    public void message(Message message){
+        this.message = message;
+    }
+    public Message message(){
+        return message;
+    }
+
+    public void bytes(byte serializerCode,byte[] bytes){
+        payload.bytes(serializerCode,bytes);
+    }
+
+    public void messageType(byte type){
+        this.payload.type(type);
+    }
+
+
+}
